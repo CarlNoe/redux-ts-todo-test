@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
-import App from "./Components/App/App";
+import App from "./App";
+import "./index.css";
 
 export default function index() {
   return <div>index</div>;
