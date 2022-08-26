@@ -1,0 +1,12 @@
+.TodoHeader {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TodoHeader h1 {
+    font-size: 128px;
+    font-weight: 800;
+    color: white;
+}

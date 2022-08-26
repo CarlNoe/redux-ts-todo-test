@@ -1,0 +1,12 @@
+.TodoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.TodoItem span {
+    margin-left: 1rem;
+}
