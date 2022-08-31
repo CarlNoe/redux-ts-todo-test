@@ -1,12 +1,12 @@
 import "./App.css";
 import TodoList from "../features/TodoList/TodoList";
 import TodoActionBar from "../features/TodoActionBar/TodoActionBar";
-import TodoHeader from "../features/TodoHeader/TodoHeader";
+import Header from "../features/Header/Header";
 
 const App = () => {
   return (
     <div className="App">
-      <TodoHeader />
+      <Header />
       <TodoList />
       <TodoActionBar />
     </div>
