@@ -1,7 +1,7 @@
 import "./App.css";
-import TodoList from "../Components/TodoList/TodoList";
-import TodoActionBar from "../Components/TodoActionBar/TodoActionBar";
-import TodoHeader from "../Components/TodoHeader/TodoHeader";
+import TodoList from "../features/TodoList/TodoList";
+import TodoActionBar from "../features/TodoActionBar/TodoActionBar";
+import TodoHeader from "../features/TodoHeader/TodoHeader";
 
 const App = () => {
   return (

@@ -1,9 +1,15 @@
 import ReactDOM from "react-dom";
-import App from "./App/App";
+import { Provider } from "react-redux";
+import React from "react";
+import App from "./app/App";
 import "./index.css";
+import { store } from "./app/store";
 
-export default function index() {
-  return <div>index</div>;
-}
-
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
