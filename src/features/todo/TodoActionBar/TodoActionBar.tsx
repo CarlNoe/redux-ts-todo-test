@@ -1,18 +1,13 @@
 import "./TodoActionBar.css";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { add } from "../todoSlice";
 
-import { store } from "../../../app/store";
-
-function TodoActionBar() {
-  const dispatch = useDispatch();
-
+function TodoActionBar(props: any) {
   const [textFieldValue, setTextFieldValue] = useState("");
 
   const createNewTodo = () => {
-    dispatch(add(textFieldValue));
-    console.log(store.getState());
+    props.add(textFieldValue);
     setTextFieldValue("");
   };
 
@@ -28,4 +23,10 @@ function TodoActionBar() {
   );
 }
 
-export default TodoActionBar;
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    add: (text: string) => dispatch(add(text)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(TodoActionBar);
