@@ -1,0 +1,18 @@
+.TodoActionBar {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.TodoActionBar input {
+  width: 100%;
+}
+
+.TodoActionBar button {
+  padding: 0.2rem;
+  margin-left: 20px;
+}

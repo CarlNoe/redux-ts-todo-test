@@ -1,11 +1,16 @@
 import "./TodoItem.css";
 
-function TodoItem() {
+interface todoProps {
+  id: number;
+  content: string;
+}
+
+function TodoItem(props: todoProps) {
   return (
     <div className="TodoItem">
       <div>
         <input type="checkbox" />
-        <span>Todo Item</span>
+        <span>{props.content}</span>
       </div>
       <button>Delete</button>
     </div>
