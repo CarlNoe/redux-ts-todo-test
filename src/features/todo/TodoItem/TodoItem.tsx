@@ -1,20 +1,27 @@
 import "./TodoItem.css";
+import { Todo } from "../../../types/Todo";
+import { useState } from "react";
+import { connect } from "react-redux";
+import {removeTodoById} from "../todoSlice";
 
-interface todoProps {
-  id: number;
-  content: string;
-}
 
-function TodoItem(props: todoProps) {
+const mapDispatchToProps = (dispatch: any, ownProps: Todo) => {
+  return {
+    removeTodoById: (id: number) => dispatch(removeTodoById(id)),
+  };
+};
+
+function TodoItem(props: any) {
+  const [check, setCheck] = useState(props.completed);
   return (
     <div className="TodoItem">
       <div>
-        <input type="checkbox" />
+        <input type="checkbox" checked={check} onChange={() => {setCheck(!check)}} />
         <span>{props.content}</span>
       </div>
-      <button>Delete</button>
+      <button onClick={props.removeTodoById}>Delete</button>
     </div>
   );
 }
 
-export default TodoItem;
+export default connect(null, mapDispatchToProps)(TodoItem);

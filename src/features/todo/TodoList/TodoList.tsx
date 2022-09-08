@@ -2,14 +2,17 @@ import "./TodoList.css";
 import { connect } from "react-redux";
 import TodoItem from "../TodoItem/TodoItem";
 
-function TodoList(props : any) {
-  console.log(props.todos);
+function TodoList(props: any) {
   const createTodoItems = () => {
     const todosData: [] = props.todos;
     return (
       <>
         {todosData.map((todoData: any) => (
-          <TodoItem id={todoData.id} content={todoData.content} />
+          <TodoItem
+            id={todoData.id}
+            content={todoData.content}
+            completed={todoData.completed}
+          />
         ))}
       </>
     );
