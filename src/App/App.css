@@ -5,6 +5,5 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* Cool blue gradient background */
   background: linear-gradient(to bottom, #00d9ff 0%, #0d7edb 100%);
 }

@@ -1,23 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit';
-
+import { Todo } from './types/Todo';
 export interface TodoState {
-    todoList: [{id:number, content:string, completed:boolean}];
+    allTodos: Todo[];
 }
 
-const initialState: TodoState = {
-    todoList: [{id:0, content:"test", completed:false}],
-}
+const initialState : TodoState = {
+    allTodos: [],
+};
 
 export const todoSlice = createSlice({
     name: "todo",
     initialState,
     reducers: {
         add: (state, action: PayloadAction<string>) => {
-            state.todoList.push({ id: 1, content: action.payload, completed: false });
+            state.allTodos.push({ id: 1, content: action.payload, completed: false });
         },
         remove: (state, action: PayloadAction<number>) => {
-            state.todoList.filter(todo => todo.id !== action.payload)
+            state.allTodos.filter(todo => todo.id !== action.payload)
         }
     }
 });

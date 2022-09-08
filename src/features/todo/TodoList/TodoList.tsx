@@ -2,8 +2,7 @@ import "./TodoList.css";
 import { connect } from "react-redux";
 import TodoItem from "../TodoItem/TodoItem";
 
-//@ts-ignore
-function TodoList(props) {
+function TodoList(props : any) {
   console.log(props.todos);
   const createTodoItems = () => {
     const todosData: [] = props.todos;
@@ -18,10 +17,9 @@ function TodoList(props) {
   return <div className="TodoList">{createTodoItems()}</div>;
 }
 
-//@ts-ignore
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return {
-    todos: state.todo.todoList,
+    todos: state.todo.allTodos,
   };
 };
 
