@@ -47,6 +47,8 @@ function TodoActionBar(props: any) {
         value={textFieldValue}
         onChange={(e) => handleTextFieldChange(e)}
         type="text"
+        placeholder="Enter todo"
+        maxLength={30}
       />
       <button onClick={() => handleAddButtonClick()}>ADD</button>
     </div>

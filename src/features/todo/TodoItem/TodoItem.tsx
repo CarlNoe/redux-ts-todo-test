@@ -1,17 +1,20 @@
 import "./TodoItem.css";
 import { Todo } from "../../../types/Todo";
-import { useState } from "react";
 import { connect } from "react-redux";
-import { removeTodoById } from "../todoSlice";
+import { removeTodoById, setTodoCompletionById } from "../todoSlice";
 
 const mapDispatchToProps = (dispatch: any, ownProps: Todo) => {
   return {
     removeTodoById: (id: number) => dispatch(removeTodoById(id)),
+    setTodoCompletionById: (id: number, completed: boolean) =>
+      dispatch(setTodoCompletionById({ id, completed })),
   };
 };
 
 function TodoItem(props: any) {
-  const [check, setCheck] = useState(props.completed);
+  const handleCheckChange = () => {
+    props.setTodoCompletionById(props.id, !props.completed);
+  };
 
   const handleDeleteButtonClick = (): void => {
     props.removeTodoById(props.id);
@@ -22,12 +25,20 @@ function TodoItem(props: any) {
       <div>
         <input
           type="checkbox"
-          checked={check}
+          checked={props.completed}
           onChange={() => {
-            setCheck(!check);
+            handleCheckChange();
           }}
         />
-        <span>{props.content}</span>
+        <span
+          style={
+            props.completed
+              ? { textDecoration: "line-through", color:"gray" }
+              : { textDecoration: "none", color:"black"}
+          }
+        >
+          {props.content}
+        </span>
       </div>
       <button onClick={() => handleDeleteButtonClick()}>Delete</button>
     </div>

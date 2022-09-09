@@ -26,7 +26,15 @@ function TodoList(props: any) {
     );
   };
 
-  return <div className="TodoList">{createTodoItems()}</div>;
+  return (
+    <div className="TodoList">
+      {props.todos.length === 0 ? (
+        <span>There are no todo</span>
+      ) : (
+        createTodoItems()
+      )}
+    </div>
+  );
 }
 
 export default connect(mapStateToProps)(TodoList);
