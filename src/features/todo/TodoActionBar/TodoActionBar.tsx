@@ -22,7 +22,6 @@ function TodoActionBar(props: any) {
   const generateUniqueId = (): number => {
     let id: number;
     const todos: Todo[] = props.todos;
-
     if (todos.length === 0) {
       id = 0;
     } else {
@@ -30,7 +29,6 @@ function TodoActionBar(props: any) {
       const biggestId = Math.max(...todosId);
       id = biggestId + 1;
     }
-
     return id;
   };
 

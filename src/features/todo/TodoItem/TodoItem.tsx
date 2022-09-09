@@ -2,8 +2,7 @@ import "./TodoItem.css";
 import { Todo } from "../../../types/Todo";
 import { useState } from "react";
 import { connect } from "react-redux";
-import {removeTodoById} from "../todoSlice";
-
+import { removeTodoById } from "../todoSlice";
 
 const mapDispatchToProps = (dispatch: any, ownProps: Todo) => {
   return {
@@ -13,13 +12,24 @@ const mapDispatchToProps = (dispatch: any, ownProps: Todo) => {
 
 function TodoItem(props: any) {
   const [check, setCheck] = useState(props.completed);
+
+  const handleDeleteButtonClick = (): void => {
+    props.removeTodoById(props.id);
+  };
+
   return (
     <div className="TodoItem">
       <div>
-        <input type="checkbox" checked={check} onChange={() => {setCheck(!check)}} />
+        <input
+          type="checkbox"
+          checked={check}
+          onChange={() => {
+            setCheck(!check);
+          }}
+        />
         <span>{props.content}</span>
       </div>
-      <button onClick={props.removeTodoById}>Delete</button>
+      <button onClick={() => handleDeleteButtonClick()}>Delete</button>
     </div>
   );
 }
